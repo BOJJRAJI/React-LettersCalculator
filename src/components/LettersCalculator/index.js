@@ -1,41 +1,37 @@
 import {Component} from 'react'
-
 import './index.css'
 
 class LettersCalculator extends Component {
-  state = {count: 0}
+  state = {input: ''}
 
-  getNumberOfLetters = event => {
-    this.setState({count: event.target.value.length})
+  onChangeInput = e => {
+    this.setState({input: e.target.value})
   }
 
   render() {
-    const {count} = this.state
+    const {input} = this.state
     return (
       <div className="bg-container">
-        <div className="card">
-          <div className="content-container">
-            <h1 className="heading">Calculate the Letters you enter</h1>
-            <label className="label-input" htmlFor="input" placeholder="">
-              Enter the phrase
-            </label>
-            <br />
-            <input
-              className="input-element"
-              id="input"
-              placeholder="Enter the phrase"
-              onChange={this.getNumberOfLetters}
-            />
-            <div className="counter-container">
-              <p className="counter-para">No.of letters: {count}</p>
-            </div>
-          </div>
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/stop-watch-with-calculator-img.png "
-            alt="letters calculator"
-            className="image"
+        <div className="data-container">
+          <h1 className="heading">Calculate the Letters you enter</h1>
+          <p className="para">Enter the phrase</p>
+          <input
+            placeholder="Enter the phrase"
+            className="search-input"
+            type="text"
+            value={input}
+            onChange={this.onChangeInput}
           />
+          <br />
+          <button className="button" type="button">
+            No.of Letters: {input.length}
+          </button>
         </div>
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/stop-watch-with-calculator-img.png "
+          alt="letters calculator"
+          className="image"
+        />
       </div>
     )
   }
