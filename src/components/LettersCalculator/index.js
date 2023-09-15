@@ -14,18 +14,19 @@ class LettersCalculator extends Component {
       <div className="bg-container">
         <div className="data-container">
           <h1 className="heading">Calculate the Letters you enter</h1>
-          <p className="para">Enter the phrase</p>
+          <label className="para" htmlFor="input">
+            Enter the phrase
+          </label>
           <input
             placeholder="Enter the phrase"
             className="search-input"
             type="text"
+            id="input"
             value={input}
             onChange={this.onChangeInput}
           />
           <br />
-          <button className="button" type="button">
-            No.of Letters: {input.length}
-          </button>
+          <p className="button">No.of letters: {input.length}</p>
         </div>
         <img
           src="https://assets.ccbp.in/frontend/react-js/stop-watch-with-calculator-img.png "
